@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatNexus</title>
+
+  <!-- FONTES GOOGLE -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rowdies:wght@300;400;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/simulacao.css">
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel="stylesheet" href="css/ajuste.css">
+  <link rel="stylesheet" href="css/chat.css">
+  <link rel="stylesheet" href="css/botao.css">
+  <link rel="stylesheet" href="css/secao.css">
+  <link rel="stylesheet" href="css/faq.css">
+</head>
+
+<body>
+  <!-- MENU -->
+  <header>
+    <nav class="menu">
+      <ul>
+        <li><a href="#inicio" class="active">Início</a></li>
+       
+
+        <li class="has-submenu">
+          <a href="#servicos">Serviços</a>
+          <div class="submenu mega-menu">
+            <div class="submenu-column">
+              <h4>Plataforma de Atendimento</h4>
+              <p>Fidelize clientes, organize conversas e aumente a produtividade da sua equipe.</p>
+              <h4>CRM para WhatsApp</h4>
+              <p>Um CRM perfeitamente integrado com o WhatsApp.</p>
+              <h4>ChatBot</h4>
+              <p>Automatize mensagens e libere sua equipe.</p>
+            </div>
+          </div>
+        </li>
+
+        <li class="has-submenu">
+          <a href="#contato">Contato</a>
+          <div class="submenu mega-menu">
+            <div class="submenu-column">
+              <h4>WhatsApp</h4>
+              <p>11 99999-9999</p>
+              <h4>Instagram</h4>
+              <p>@seuusuario</p>
+              <h4>Email</h4>
+              <p>contato@exemplo.com</p>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      <div class="menu-buttons">
+        <a href="login.html" class="btn-outline">Conecte-se</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- SEÇÃO HERO -->
+  <section class="section-hero" id="inicio">
+    <div class="hero-text">
+      <h1>Você precisa mais do que respostas automáticas</h1>
+      <h2>Você precisa de um assistente inteligente que entende o seu cliente.</h2>
+     <a href="gratuito.php" target="_blank">
+  <button class="teste">Cadastre-se gratuitamente</button>
+</a>
+    </div>
+
+    <div class="hero-phone">
+      <div class="phone">
+        <div class="notch"></div>
+        <div class="status-bar"></div>
+        <div class="screen">
+          <span class="hora">14:06</span>
+          <div class="icones-direita">
+            <span class="wifi">&#128246;</span>
+            <span class="bateria">54%</span>
+          </div>
+          <div class="chat-container"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- SEÇÃO ESCURA COM CARDS -->
+<section class="section-break">
+  <div class="section-content">
+    <h1>O que o Chatnexus proporciona para os nossos clientes</h1>
+    <p class="subtitulo">
+      Todo negócio tem suas necessidades específicas, por isso o Chatnexus é a ferramenta com mais opções e configurações disponível no mercado.
+    </p>
+  </div>
+
+  <section class="section-cards">
+    <div class="cards">
+      <div class="card">
+        <h3>Interface intuitiva</h3>
+        <p class="card-subtitle">Prática para todos clientes</p>
+        <p>Possui uma interface intuitiva para que seja prática tanto para realizar o cadastro de sua empresa, quanto para os clientes que acessarão seu portal.</p>
+      </div>
+
+      <div class="card">
+        <h3>Perguntas Frequentes</h3>
+        <p class="card-subtitle">Respostas rápidas e diretas</p>
+        <p>Disponibilizamos os tópicos mais comuns em nosso sistema de FAQ para o cliente aqui.</p>
+      </div>
+
+      <div class="card">
+        <h3>Chat de Suporte</h3>
+        <p class="card-subtitle">Atendimento em tempo real</p>
+        <p>Converse com um atendente dedicado via chat. Suporte rápido, prático e personalizado para sanar suas dúvidas.</p>
+      </div>
+    </div>
+  </section>
+</section>
+
+  <!-- BOTÃO MINI CHAT -->
+  <div id="chat-button" onclick="toggleChat()">
+    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 60 60">
+      <circle cx="30" cy="30" r="30" fill="#005fa3"/>
+      <path d="M18 20 h24 a6 6 0 0 1 6 6 v12 a6 6 0 0 1 -6 6 h-16 l-6 6 v-6 h-4 a6 6 0 0 1 -6 -6 v-12 a6 6 0 0 1 6 -6 z" fill="white"/>
+    </svg>
+  </div>
+
+  <div id="mini-chat-box" style="display:none;">
+    <div class="mini-chat-header">Atendimento</div>
+    <div id="mini-chat-messages"></div>
+    <input type="text" placeholder="Digite sua mensagem..." />
+  </div>
+
+  <!-- SEÇÃO DE DEPOIMENTOS -->
+<section class="section-divider">
+  <div class="testimonials-container">
+     <h4 class="testimonials-title">O que nossos clientes dizem</h4>
+
+    <div class="testimonial-card">
+      <p>"O ChatNexus revolucionou nosso atendimento! Aumentamos em 40% a satisfação dos clientes."</p>
+      <span>- Maria Silva, Loja Online</span>
+    </div>
+
+    <div class="testimonial-card">
+      <p>"Fácil de usar e implementar. Em 1 dia já estávamos atendendo melhor nossos clientes."</p>
+      <span>- João Santos, Consultoria</span>
+    </div>
+  </div>
+</section>
+<!-- SEÇÃO FAQ -->
+<section class="section-faq">
+  <div class="faq-container">
+    <h2>Dúvidas frequentes</h2>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        O que é o ChatNexus?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        O ChatNexus é uma plataforma de chat que ajuda empresas a se comunicarem com clientes de forma automatizada e eficiente.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Como funciona para cadastrar minha empresa no ChatNexus?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+      Para cadastrar sua empresa, basta clicar em “Cadastrar-se gratuitamente” para ser redirecionado à página de cadastro. Após preencher as informações, será gerado um link exclusivo que você poderá copiar e adicionar às redes sociais da sua loja (por exemplo, na bio do Instagram). Assim, sempre que um cliente clicar nesse link, ele será direcionado diretamente para o chat da sua empresa.      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Preciso ter conhecimentos técnicos para usar o ChatNexus?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        Não, a interface foi projetada para ser simples e intuitiva — qualquer pessoa pode configurar em poucos minutos.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">
+        Existe suporte ou treinamento disponível?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        Sim, nossa equipe oferece suporte especializado para que você aproveite ao máximo a ferramenta.
+      </div>
+    </div>
+  </div>
+</section>
+
+
+  <script src="js/teste.js"></script>
+</body>
+</html>
