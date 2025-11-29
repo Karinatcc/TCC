@@ -1,0 +1,184 @@
+
+/* Centraliza na tela */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  background-color: #f5f6f8; /* escolha a cor desejada */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* Caixa principal */
+.form-container {
+  background-color: #fff;
+  width: 360px;
+  padding: 40px 35px;
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.233);
+  text-align: center;
+}
+
+/* Título */
+h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 25px;
+}
+
+/* Formulário */
+form {
+  text-align: left;
+}
+
+label {
+  display: block;
+  font-size: 13px;
+  color: #222;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+/* Campos de entrada */
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  margin-bottom: 16px;
+  font-size: 14px;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+  border-color: #1781fa;
+  box-shadow: 0 0 0 2px rgba(0, 87, 255, 0.15);
+}
+
+/* Ícone do olho */
+.input-senha {
+  position: relative;
+}
+
+.toggle-olho {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+/* Linha entre label e link */
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.esqueceu {
+  font-size: 13px;
+  color: #0057ff;
+  text-decoration: none;
+}
+
+.esqueceu:hover {
+  text-decoration: underline;
+}
+
+/* Botão principal */
+button[type="submit"] {
+  width: 100%;
+  background-color: #0057ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 13px;
+  margin-top: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #0a6adf;
+}
+
+/* Linha divisória */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 25px 0;
+  color: #888;
+  font-size: 14px;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+  margin: 0 10px;
+}
+
+/* Botões sociais */
+.social-login button {
+  width: 100%;
+  border: 1px solid #ccc;
+  background-color: white;
+  color: #000;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.social-login button:hover {
+  background-color: #f1f1f1;
+}
+
+.social-login img {
+  width: 20px;
+  height: 20px;
+}
+
+/* ---------- MENSAGENS DE FEEDBACK (IGUAL AO CADASTRO) ---------- */
+.mensagem {
+    padding: 15px;
+    margin: 20px 0;
+    border-radius: 8px;
+    font-weight: 500;
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    font-size: 14px;
+    border: 1px solid transparent;
+}
+
+.mensagem.sucesso {
+    background-color: #d4edda;
+    color: #155724;
+    border-color: #c3e6cb;
+}
+
+.mensagem.erro {
+    background-color: #f8d7da;
+    color: #721c24;
+    border-color: #f5c6cb;
+}
+
+.mensagem.info {
+    background-color: #cce7ff;
+    color: #004085;
+    border-color: #b3d7ff;
+}

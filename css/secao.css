@@ -1,0 +1,263 @@
+/* 
+SEÇÃO ESCURA COM FUNDO COMENTADA - REMOVIDA PARA EVITAR CONFLITO
+
+.section-break {
+  background-image: url("pinblue.png");
+  background-size: cover;
+  background-position: center;
+  padding: 10px;  
+  min-height: 400px;    
+  text-align: center;
+  position: relative;
+}
+
+Centraliza e organiza o conteúdo interno 
+.section-content {
+  padding: 60px 30px;
+  border-radius: 20px;
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+TÍTULOS E SUBTÍTULO 
+.section-break h1 {
+  color: rgb(250, 247, 247);
+  font-size: 45px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+  margin-bottom: 20px;
+  font-family: "Rowdies", sans-serif;
+  font-weight: 300;
+}
+
+.section-break .subtitulo {
+  color: #fffcfc;
+  font-size: 16px;
+  margin-bottom: 60px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+*/
+
+
+
+/* NOVA SEÇÃO */
+/* === SEÇÃO DE PLANOS === */
+
+h4.pricing-title {
+
+ font-family:  "Poppins", sans-serif;
+ text-align: center;
+ font-size: 50px;
+ font-weight: 700;
+ color: #e9f5ee;
+ margin-bottom: 60px;
+ width: 100%;
+ letter-spacing: 0.5px;
+
+}
+
+
+.section-divider {
+  background-color: #053138e0;
+  padding: 100px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  color: #fff;
+}
+
+/* === CONTAINER DE CARDS === */
+.section-divider .pricing-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* === CARD BASE === */
+.section-divider .pricing-card {
+  background: #c9e9e0;
+  border-radius: 12px;
+  padding: 40px 35px;
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.section-divider .pricing-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.418);
+}
+
+/* === VARIAÇÕES === */
+.section-divider .pricing-professional {
+  background-color: #030e24;
+  border-top: 12px solid #032c31;
+}
+
+.section-divider .pricing-enterprise {
+  background-color: #030e24;
+  border-top: 12px solid #032c31;
+}
+
+/* === TÍTULOS === */
+.section-divider .pricing-card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 15px;
+  color: #e7f1ec;
+}
+
+/* === PREÇOS === */
+.section-divider .pricing-card .price {
+  font-size: 28px;
+  font-weight: 700;
+  margin-bottom: 6px;
+  color: #ffffff;
+}
+
+.section-divider .pricing-card .subprice {
+  font-size: 14px;
+  color: #ff7300;
+  margin-bottom: 15px;
+}
+
+.section-divider .pricing-card .note {
+  background-color: #091b4d;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 25px;
+  display: inline-block;
+}
+
+/* === LISTA DE RECURSOS === */
+.section-divider .pricing-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px 0 30px 0;
+}
+
+.section-divider .pricing-card ul li {
+  color: white;
+  margin: 10px 0;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.section-divider .pricing-card ul li::before {
+  content: "✓";
+  color: #13485e;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+
+
+/* === DIFERENÇAS DO ENTERPRISE === */
+.section-divider .pricing-enterprise .note {
+  background-color: #091b4d;
+  color: white;
+}
+
+.section-divider .pricing-enterprise button {
+  border-color: #9cffc3;
+  color: #9cffc3;
+}
+
+.section-divider .pricing-enterprise button:hover {
+  background-color: #0df068;
+  color: #0a1716;
+}
+
+/* === RESPONSIVIDADE === */
+@media (max-width: 900px) {
+  .section-divider .pricing-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section-divider .pricing-card {
+    width: 90%;
+  }
+}
+
+/* === SEÇÃO DE DEPOIMENTOS === */
+.testimonials-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.testimonials-title {
+  font-family: "Poppins", sans-serif;
+  text-align: center;
+  font-size: 45px;
+  font-weight: 700;
+  color: #e9f5ee;
+  margin-bottom: 60px;
+  width: 100%;
+  letter-spacing: 0.5px;
+}
+
+.testimonial-card {
+  background: #c9e9e0;
+  border-radius: 12px;
+  padding: 40px 35px;
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.418);
+}
+
+.testimonial-card p {
+  font-size: 18px;
+  color: #030e24;
+  line-height: 1.6;
+  margin-bottom: 20px;
+  font-style: italic;
+  font-family: "Poppins", sans-serif;
+}
+
+.testimonial-card span {
+  font-size: 16px;
+  color: #030e24;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+
+/* === RESPONSIVIDADE === */
+@media (max-width: 900px) {
+  .testimonials-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .testimonial-card {
+    width: 90%;
+  }
+  
+  .testimonials-title {
+    font-size: 35px;
+  }
+}

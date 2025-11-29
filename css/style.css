@@ -1,0 +1,428 @@
+/* ---------- GERAL ---------- */
+body {
+  background: none;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+}
+
+body, ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  font-weight: bold;
+}
+
+/* ---------- CONTAINER ---------- */
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  box-sizing: border-box;
+}
+
+/* ---------- MENU ---------- */
+.menu {
+  background: #0a0a0a;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu ul {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: normal;
+  padding: 8px 12px;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.menu a:hover,
+.menu a.active {
+  background: #0077cc;
+  color: #fff;
+}
+
+/* Submenu */
+.has-submenu {
+  position: relative;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #111;
+  color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  min-width: 300px;
+  z-index: 10;
+}
+
+.has-submenu:hover .submenu {
+  display: block;
+}
+
+.menu-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-outline {
+  padding: 8px 16px;
+  border: 1px solid #0077cc;
+  color: #0077cc;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+
+.btn-outline:hover {
+  background: #0077cc;
+  color: #fff;
+}
+
+/* ---------- SEÇÃO HERO ---------- */
+.section-hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 40px;
+  padding: 100px 60px;
+  background: linear-gradient(to bottom, #002c46, #000000);
+  color: #fff;
+  flex-wrap: wrap;
+}
+
+.hero-text {
+  max-width: 600px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.hero-text h1 {
+  margin: 0;
+  font-size: 50px;
+  line-height: 1.2;
+  font-family: "Rowdies", sans-serif;
+  font-weight: 300;
+  text-shadow: 2px 2px 7px rgba(116, 150, 189, 0.822);
+}
+
+.hero-text h2 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.4;
+  font-weight: normal;
+  text-align: left;
+  text-shadow: none;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+.hero-text button.teste {
+  align-self: flex-start;
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  background: #0077cc;
+  color: #fff;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.hero-text button.teste:hover {
+  background: #005fa3;
+}
+
+.hero-phone {
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ---------- SEÇÃO ESCURA COM CARDS ---------- */
+.section-break {
+  background-image: url("../imagem/pinblue.png");
+  background-size: cover;
+  background-position: center;
+  padding: 100px 20px;
+  min-height: 600px;
+  text-align: center;
+  position: relative;
+}
+
+/* Centraliza e organiza o conteúdo interno */
+.section-content {
+  padding: 60px 30px;
+  border-radius: 20px;
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* MUDAR A COR DO TEXTO PARA BRANCO */
+.section-break h1 {
+  color: #ffffff;
+  font-size: 55px;
+  margin-bottom: 20px;
+  font-family: "Rowdies", sans-serif;
+  font-weight: 400;
+}
+
+.section-break .subtitulo {
+  color: #ffffff;
+  font-size: 16px;
+  margin-bottom: 60px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+/* O RESTO PERMANECE EXATAMENTE COMO ESTAVA */
+.section-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 50px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 30px;
+  text-align: center;
+  flex: 1;
+  min-width: 280px;
+  max-width: 350px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card h3 {
+  color: #0a0a0a;
+  font-size: 24px;
+  margin-bottom: 10px;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+.card-subtitle {
+  color: #0077cc;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 15px;
+  font-family: "Poppins", sans-serif;
+  display: block;
+}
+
+.card p {
+  color: #555;
+  font-size: 14px;
+  line-height: 1.6;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+/* ---------- SEÇÃO DE DEPOIMENTOS ---------- */
+.section-divider {
+  background: #f8f9fa;
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.testimonials-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.testimonials-title {
+  color: #0a0a0a;
+  font-size: 32px;
+  margin-bottom: 40px;
+  font-family: "Rowdies", sans-serif;
+  font-weight: 400;
+}
+
+.testimonial-card {
+  background: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 30px;
+  margin: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  max-width: 400px;
+  text-align: left;
+}
+
+.testimonial-card p {
+  color: #555;
+  font-style: italic;
+  margin-bottom: 15px;
+  font-family: "Poppins", sans-serif;
+}
+
+.testimonial-card span {
+  color: #0077cc;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+
+/* ---------- SEÇÃO FAQ ---------- */
+.section-faq {
+  background: #ffffff;
+  padding: 80px 20px;
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-container h2 {
+  color: #0a0a0a;
+  font-size: 42px;
+  text-align: center;
+  margin-bottom: 40px;
+  font-family: "Rowdies", sans-serif;
+  font-weight: 400;
+}
+
+.faq-item {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 15px;
+  overflow: hidden;
+}
+
+.faq-question {
+  width: 100%;
+  padding: 20px;
+  background: #f8f9fa;
+  border: none;
+  text-align: left;
+  font-size: 18px;
+  font-weight: 600;
+  color: #0a0a0a;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: "Poppins", sans-serif;
+  transition: 0.3s;
+}
+
+.faq-question:hover {
+  background: #e9ecef;
+}
+
+.faq-answer {
+  padding: 0 20px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+  color: #666;
+  font-family: "Poppins", sans-serif;
+  line-height: 1.6;
+}
+
+.faq-answer.active {
+  padding: 20px;
+  max-height: 200px;
+}
+
+/* ---------- BOTÃO CHAT ---------- */
+#chat-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+#mini-chat-box {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  width: 300px;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  z-index: 1000;
+}
+
+.mini-chat-header {
+  background: #0077cc;
+  color: white;
+  padding: 15px;
+  border-radius: 10px 10px 0 0;
+  font-weight: bold;
+}
+
+#mini-chat-messages {
+  height: 200px;
+  overflow-y: auto;
+  padding: 15px;
+}
+
+#mini-chat-box input {
+  width: 100%;
+  padding: 15px;
+  border: none;
+  border-top: 1px solid #e0e0e0;
+  border-radius: 0 0 10px 10px;
+  box-sizing: border-box;
+}
+
+/* ---------- BOTÃO FIXO ---------- */
+.teste-fixo {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 15px;
+  background-color: rgb(8, 4, 27);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(99, 80, 80, 0.3);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.teste-fixo:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 10px rgba(99, 80, 80, 0.5);
+}

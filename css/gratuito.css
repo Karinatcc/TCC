@@ -1,0 +1,98 @@
+body{
+  background-color: #F0F3F5;
+  display: flex;
+  justify-content: center;  /* Centraliza horizontalmente */
+  align-items: center;      /* Centraliza verticalmente */
+  height: 100vh;            /* Altura total da janela */
+  margin: 0;          
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI',   Verdana, sans-serif;
+ 
+}
+
+/* Container do formulário */
+.form-gratuito {
+  width: 100%;
+  max-width: 400px;
+  margin: 60px auto;
+  padding: 40px 30px;
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.212);
+  text-align: center;
+}
+
+
+
+/* Título e subtítulo */
+.form-gratuito h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #111;
+}
+
+.form-gratuito p {
+  font-size: 14px;
+  color: #777;
+  margin-bottom: 30px;
+}
+
+/* Labels */
+.form-gratuito label {
+  display: block;
+  text-align: left;
+  font-size: 14px;
+  color: #555;
+  margin-bottom: 5px;
+  margin-top: 15px;
+}
+
+/* Inputs */
+.form-gratuito input {
+  width: 100%;
+  padding: 12px 15px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.form-gratuito input:focus {
+  border-color: #2378f7; /* vermelho similar ao botão */
+  outline: none;
+  box-shadow: 0 0 5px rgba(140, 184, 241, 0.795);
+ 
+}
+
+/* Botão */
+.form-gratuito .btn-primary {
+  width: 100%;
+  padding: 12px;
+  margin-top: 20px;
+  background-color: #03062e;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form-gratuito .btn-primary:hover {
+  background-color: #0933a894;
+}
+
+/* Responsividade */
+@media (max-width: 500px) {
+  .form-gratuito {
+    padding: 30px 20px;
+  }
+}
+

@@ -1,0 +1,97 @@
+ #chat-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1000;
+  background-color: transparent;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+#mini-chat-box {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  width: 300px;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  display: none;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: 999;
+}
+
+
+.mini-chat-header {
+  background-color: #0d053b;
+  color: white;
+  padding: 10px;
+  font-weight: bold;
+}
+
+
+#mini-chat-messages {
+  padding: 10px;
+  height: 150px;
+  overflow-y: auto;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+}
+
+
+#mini-chat-box input {
+  border: none;
+  border-top: 1px solid #ccc;
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+
+#mini-chat-messages .chat-message {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  margin-bottom: 8px;
+  padding: 8px 12px;
+  border-radius: 10px;
+  max-width: 80%;
+  word-wrap: break-word;
+  font-size: 14px;
+  line-height: 1.3;
+}
+
+
+#mini-chat-messages .chat-message.bot {
+  background-color: #e3f2fd;
+  color: #0d47a1;
+  align-self: flex-start;
+}
+
+
+#mini-chat-messages .chat-message.user {
+  background-color: #c2e3ec;
+  color: #0c3b0e;
+  align-self: flex-end;
+  text-align: right;
+}
+
+
+#mini-chat-messages .typing {
+  font-style: italic;
+  color: #999;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+

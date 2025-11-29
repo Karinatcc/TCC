@@ -1,0 +1,122 @@
+
+/* CONTAINER DOS CARDS */
+.cards {
+  display: flex;
+  flex-direction: row;   /* deixa os cards lado a lado */
+  justify-content: center; /* centraliza horizontalmente */
+  align-items: stretch;   /* garante alturas equilibradas */
+  gap: 40px;
+  flex-wrap: wrap;        /* quebra linha se faltar espaço */
+  margin-bottom: 200px;
+}
+
+
+/* CARD BASE */
+.card {
+  position: relative;
+  color: #000;
+  border-radius: 40px;
+  padding: 40px 40px;
+  width: 230px;
+  box-shadow: 0 10px 25px rgba(0, 51, 102, 0.712);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+}
+
+/* Borda interna suave */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 15px;
+  border-radius: 30px;
+  background: linear-gradient(145deg, rgba(255, 255, 255, 0.842), rgba(245,245,255,0.8));
+  box-shadow: inset 0 0 2px rgba(220, 210, 255, 0.5);
+  z-index: 1;
+}
+
+/* Conteúdo acima da borda */
+.card > * {
+  position: relative;
+  z-index: 2;
+}
+
+/* Hover com leve destaque */
+.card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Texto */
+.card h3 {
+  font-size: 22px; /* um pouco maior para dar presença */
+  font-weight: 700; /* peso médio, mais moderno que 700 pesado */
+  margin-bottom: 14px; /* leve espaçamento */
+  color: #042e55;
+  font-family: 'Poppins', sans-serif; /* fallback moderno */
+  letter-spacing: 0.5px; /* espaçamento entre letras, deixa mais elegante */
+  line-height: 1.3; /* melhor leitura */
+ 
+}
+
+.card .card-subtitle {
+  font-size: 15px;
+  color: #7a8a8a;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.card p {
+  font-size: 14px;
+  color: #033d5f;
+  font-family: "Poppins", sans-serif;
+  font-weight: 600;
+}
+
+
+/* REMOVE o botão Saiba Mais */
+.card .btn {
+  display: none;
+}
+
+/* BOTÃO DO CARD */
+.card .btn {
+  background-color: #042e55;
+  color: #fff;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+}
+
+/* CORES DIFERENTES EM TOM PASTEL (azulados) */
+/* DIFERENTES TONS DE AZUL CLARO — MAIS VISÍVEIS */
+.card:nth-child(1) {
+  background: linear-gradient(180deg, #abe5fd 85%,#2ca0f8  100%);
+}
+
+.card:nth-child(2) {
+  background: linear-gradient(180deg, #abe5fd 85%, #2ca0f8   100%);
+}
+
+.card:nth-child(3) {
+  background: linear-gradient(180deg,  #abe5fd 85%, #2ca0f8   100%);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 90%;
+    margin-top: 20px;
+  }
+}
+
+
+

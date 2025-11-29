@@ -1,0 +1,72 @@
+/* --- MENU DE BOTÕES --- */
+.menu-buttons {
+  display: flex;
+  gap: 10px;
+  margin-left: auto; /* Alinha os botões à direita */
+  align-items: center;
+}
+
+.menu-buttons a {
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px; /* botões arredondados */
+  font-weight: bold;
+  display: inline-block;
+}
+
+.btn-outline {
+  border: 2px solid #007bff;
+  color: #007bff;
+  background-color: transparent;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .menu-links {
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .menu-buttons {
+    margin-top: 15px;
+    align-self: flex-end;
+  }
+}
+
+/* --- BOTÃO CONECTE-SE --- */
+.btn-login {
+  background-color: transparent; /* fundo inicial transparente */
+  color: #0a84ff; /* azul padrão */
+  border: 2px solid #0a84ff;
+  padding: 10px 24px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* --- EFEITO HOVER --- */
+.btn-login:hover {
+  background-color: #0a84ff; /* azul claro ao passar o mouse */
+  color: #03062e; /* azul escuro no texto */
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* --- AO CLICAR (efeito de pressão) --- */
+.btn-login:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}

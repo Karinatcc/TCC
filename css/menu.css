@@ -1,0 +1,196 @@
+/* --- MENU PRINCIPAL --- */
+.menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: #020116;
+  padding: 15px 35px;
+  position: fixed; 
+  top: 0;
+  left: 0;
+  z-index: 1000; 
+}
+
+
+/* Barra principal arredondada */
+.menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  background-color: #020116;
+  border-radius: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 200;
+  font-weight: 400;
+}
+
+/* Itens principais */
+.menu li {
+  display: flex;
+  align-items: center;
+  margin-right: 10px;
+  position: relative;
+  flex-shrink: 0;
+}
+
+/* Links principais (botões arredondados) */
+.menu li a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-family: "Poppins", sans-serif ;
+  padding: 10px 16px;
+  border-radius: 8px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Hover interativo */
+.menu li a:hover {
+  background-color: #0a84ff;
+  transform: translateY(-2px);
+}
+
+/* Link ativo */
+.menu li a.active {
+  background-color: #0a84ff;
+}
+
+/* Seta indicadora para submenus */
+.menu li.has-submenu > a::after {
+  content: "\02C5";
+  font-size: 14px;
+  margin-left: 6px;
+  vertical-align: middle;
+  color: white;
+  display: inline-block;
+  transform: scaleX(1.5);
+  transition: transform 0.2s ease;
+}
+
+.menu li.has-submenu:hover > a::after {
+  transform: scaleX(1.5) rotate(180deg);
+}
+
+/* --- SUBMENU --- */
+.menu li .submenu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  background-color: #f5fafa;
+  border-radius: 10px;
+  padding: 20px 30px;
+  min-width: 380px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  z-index: 300;
+  color: #0d0757;
+  font-family: 'Arial', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.5em;
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Mostrar submenu ao hover */
+.menu li:hover .submenu {
+  display: block;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Coluna interna do submenu */
+.submenu-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.submenu-column h4 {
+  color: #180757;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 16px;
+}
+
+.submenu-column p {
+  margin-top: 0;
+  margin-bottom: 20px;
+  color: #5f7f7f;
+}
+
+/* Itens clicáveis dentro do submenu */
+.submenu a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.submenu a:hover h4 {
+  color: #0a84ff;
+}
+
+/* --- BOTÕES SECUNDÁRIOS (à direita) --- */
+.menu-buttons {
+  display: flex;
+  gap: 10px;
+  margin-left: auto;
+}
+
+.menu-buttons a {
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.btn-outline {
+  border: 2px solid #007bff;
+  color: #007bff;
+  background-color: transparent;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  color: white;
+}
+
+/* --- BUSCA E PERFIL --- */
+.search-item, .profile-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.profile-item {
+  margin-left: auto;
+  align-self: center;
+}
+
+.search-item input {
+  padding: 5px 8px;
+  border-radius: 6px 0 0 6px;
+  border: none;
+  outline: none;
+}
+
+.search-item button {
+  padding: 5px 10px;
+  border-radius: 0 6px 6px 0;
+  border: none;
+  background-color: #0a84ff;
+  color: #fff;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.search-item button:hover {
+  background-color: #0a6adf;
+}
+
+
