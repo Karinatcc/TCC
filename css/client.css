@@ -1,0 +1,154 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Poppins", sans-serif;
+}
+
+body{
+    background:#e5ddd5;
+}
+
+.client-app{
+    width:100%;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    background:#edf1f7;
+}
+
+/* HEADER */
+.client-header{
+    background:#f0f2f5;
+    padding:15px;
+    border-bottom:1px solid #ddd;
+}
+
+.client-header h3{
+    font-size:20px;
+    font-weight:600;
+}
+
+.status{
+    font-size:13px;
+    color:green;
+}
+
+/* MENSAGENS */
+.client-messages{
+    flex:1;
+    padding:20px;
+    overflow-y:auto;
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+}
+
+.msg{
+    padding:10px 14px;
+    max-width:60%;
+    border-radius:20px;
+    font-size:14px;
+    line-height:1.3;
+    opacity:0;
+    transform:translateY(10px);
+    animation:msgEnter .25s ease forwards;
+    word-wrap:break-word;
+}
+
+.msg.sent{
+    background:#147aff;
+    color:white;
+    align-self:flex-end;
+}
+
+.msg.received{
+    background:#1c2a33;
+    color:white;
+    align-self:flex-start;
+}
+
+/* INPUT */
+.client-input{
+    display:flex;
+    gap:10px;
+    padding:15px;
+    background:#e2e5ec;
+   
+}
+
+
+.client-input button{
+    background:#031842;
+    border:none;
+    color:white;
+    padding:12px 20px;
+    border-radius:20px;
+    font-weight:600;
+    cursor:pointer;
+}
+
+/* ANIMAÇÃO */
+@keyframes msgEnter{
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* INDICADOR DE DIGITAÇÃO */
+.typing{
+    display:flex;
+    gap:5px;
+    background:#1c2a33;
+    padding:10px 15px;
+    border-radius:20px;
+    width:fit-content;
+    margin:5px 20px;
+    color:white;
+}
+
+.dot{
+    width:6px;
+    height:6px;
+    background:white;
+    border-radius:50%;
+    animation:blink 1s infinite ease-in-out;
+}
+
+.dot:nth-child(2){ animation-delay:.2s; }
+.dot:nth-child(3){ animation-delay:.4s; }
+
+
+
+/* ÁREA DE DIGITAÇÃO — mesmo estilo do CSS1 */
+.client-input {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    background: #edf5fd;
+    border-top: 1px solid #c4d8f5;
+}
+
+/* INPUT — igual ao do CSS1 (sem borda animada, sem linha feia) */
+.client-input input {
+    flex: 1;
+    padding: 10px;
+    border-radius: 20px;
+    border: 2px solid #130f36cb;
+    outline: none;
+    background: white;
+}
+
+/* BOTÃO ENVIAR — igual ao CSS1 */
+.client-input button {
+    background: #031842;
+    padding: 15px 15px;
+    border: none;
+    border-radius: 25px;
+    color: white;
+    cursor: pointer;
+    width: 100px;
+    font-weight: 600;
+}
