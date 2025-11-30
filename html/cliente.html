@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atendimento - ChatNexus</title>
+    <link rel="stylesheet" href="client.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="client-app">
+
+    <!-- HEADER -->
+    <header class="client-header">
+        <h3>Atendimento</h3>
+        <p class="status">Online</p>
+    </header>
+
+    <!-- ÁREA DAS MENSAGENS -->
+    <div class="client-messages" id="clientMessages">
+        <div class="msg received">Olá! Como posso ajudar você hoje?</div>
+    </div>
+
+    <!-- INDICADOR DE DIGITAÇÃO -->
+    <div id="typingIndicator" class="typing" style="display:none;">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+    </div>
+
+    <!-- INPUT -->
+    <footer class="client-input">
+        <input type="text" id="clientInput" class="input-animated" placeholder="Digite sua mensagem...">
+        <button id="clientSend">Enviar</button>
+    </footer>
+
+</div>
+
+<script src="cliente.js"></script>
+</body>
+</html>
+
