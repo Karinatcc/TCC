@@ -1,0 +1,48 @@
+body{ 
+  background:  linear-gradient(to bottom,  #0077cc, #01131f);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.cadastro-sucesso p:nth-child(1) {
+    font-family: "Rowdies", sans-serif;
+    color:white;
+    font-weight: 400;
+    font-size: 50px;
+    margin-top: -70px;
+}
+
+.cadastro-sucesso p:nth-child(2) {
+    font-family: "Poppins", sans-serif;
+    color: white;
+    font-weight: 500;
+    font-size: 20px ;
+    margin-top: -40px;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    width: 280px;
+}
+
+.btn-chat {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 10px 20px;
+    background: #0077cc;
+    color: white;
+    font-family:"Poppins", sans-serif ;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn-chat:hover {
+    background: #005f99;
+}
