@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recuperar Senha - ChatNexus</title>
+  <link rel="stylesheet" href="../css/recuperar-senha.css">
+</head>
+<body>
+  <div class="form-container">
+    <h2>Recuperar Senha</h2>
+    
+    <!-- Mensagens de feedback -->
+    <div id="mensagemArea"></div>
+
+    <!-- Formulário de recuperação de senha -->
+    <form method="POST" action="../processa-recuperar-senha.php" id="formRecuperarSenha">
+      <label for="email">E-mail cadastrado</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        placeholder="Digite seu e-mail cadastrado"
+        required
+      >
+
+      <label for="nova_senha">Nova Senha</label>
+      <div class="input-senha">
+        <input
+          type="password"
+          id="nova_senha"
+          name="nova_senha"
+          placeholder="Mínimo 5 caracteres"
+          required
+          minlength="5"
+        >
+        <svg class="toggle-olho" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20">
+          <path fill="#555" d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zm0 12.5c-2.48 0-4.5-2.02-4.5-4.5S9.52 8 12 8s4.5 2.02 4.5 4.5S14.48 17 12 17zm0-7c-1.38 0-2.5 1.12-2.5 2.5S10.62 15 12 15s2.5-1.12 2.5-2.5S13.38 10 12 10z"/>
+        </svg>
+      </div>
+
+      <label for="confirmar_senha">Confirmar Nova Senha</label>
+      <div class="input-senha">
+        <input
+          type="password"
+          id="confirmar_senha"
+          name="confirmar_senha"
+          placeholder="Digite a senha novamente"
+          required
+          minlength="5"
+        >
+        <svg class="toggle-olho-confirmar" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20">
+          <path fill="#555" d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zm0 12.5c-2.48 0-4.5-2.02-4.5-4.5S9.52 8 12 8s4.5 2.02 4.5 4.5S14.48 17 12 17zm0-7c-1.38 0-2.5 1.12-2.5 2.5S10.62 15 12 15s2.5-1.12 2.5-2.5S13.38 10 12 10z"/>
+        </svg>
+      </div>
+
+      <button type="submit">Alterar Senha</button>
+    </form>
+
+    <div class="voltar-login">
+      <a href="../login.html">← Voltar para o Login</a>
+    </div>
+  </div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+      const form = document.getElementById('formRecuperarSenha');
+      const mensagemArea = document.getElementById('mensagemArea');
+      
+      // Verificar mensagens na URL
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('mensagem')) {
+          const mensagemDiv = document.createElement('div');
+          mensagemDiv.className = 'mensagem ' + (urlParams.get('tipo') || 'info');
+          mensagemDiv.textContent = urlParams.get('mensagem');
+          mensagemArea.appendChild(mensagemDiv);
+      }
+
+      // Configurar botões mostrar/esconder senha
+      const toggleOlhos = document.querySelectorAll('.toggle-olho, .toggle-olho-confirmar');
+      
+      toggleOlhos.forEach((toggle) => {
+          let mostrando = false;
+          const senhaInput = toggle.classList.contains('toggle-olho') 
+              ? document.getElementById('nova_senha') 
+              : document.getElementById('confirmar_senha');
+          
+          toggle.addEventListener('click', () => {
+              mostrando = !mostrando;
+              senhaInput.type = mostrando ? 'text' : 'password';
+              toggle.style.opacity = mostrando ? '0.7' : '1';
+          });
+      });
+
+      // Validação de senhas iguais
+      form.addEventListener('submit', function(e) {
+          const novaSenha = document.getElementById('nova_senha').value;
+          const confirmarSenha = document.getElementById('confirmar_senha').value;
+          
+          if (novaSenha !== confirmarSenha) {
+              e.preventDefault();
+              
+              // Limpar mensagens anteriores
+              mensagemArea.innerHTML = '';
+              
+              const mensagemDiv = document.createElement('div');
+              mensagemDiv.className = 'mensagem erro';
+              mensagemDiv.textContent = 'As senhas não coincidem. Digite senhas iguais nos dois campos.';
+              mensagemArea.appendChild(mensagemDiv);
+              
+              mensagemArea.scrollIntoView({ behavior: 'smooth' });
+          }
+      });
+  });
+  </script>
+</body>
+</html>

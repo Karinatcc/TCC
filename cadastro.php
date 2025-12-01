@@ -1,4 +1,5 @@
 <?php 
+session_start();
 
 if ($_POST) {
   // Inclui o arquivo de conexão com o banco de dados
@@ -52,11 +53,24 @@ if ($_POST) {
           // Executa a query
           $stmt->execute([$nome, $email, $senhaHash, $telefone]);
 
-          $mensagem = "Cadastro realizado com sucesso!";
-          $tipo = "sucesso";
-          
-          // Limpar campos
-          $nome = $email = $telefone = '';
+          // OBTER ID DO USUÁRIO CRIADO
+          $usuario_id = $pdo->lastInsertId();
+
+          // GERAR LINK ÚNICO (agora com o ID disponível)
+          $link_unico = 'empresa_' . $usuario_id . '_' . bin2hex(random_bytes(6));
+          $sql_update = "UPDATE usuarios SET link_unico = ? WHERE id = ?";
+          $stmt_update = $pdo->prepare($sql_update);
+          $stmt_update->execute([$link_unico, $usuario_id]);
+
+          // Guardar na sessão
+          $_SESSION['usuario_id'] = $usuario_id;
+          $_SESSION['usuario_nome'] = $nome;
+          $_SESSION['usuario_email'] = $email;
+          $_SESSION['usuario_link'] = $link_unico;
+
+          // REDIRECIONAR PARA O CHAT
+          header('Location: chatt.php');
+          exit;        
         }
       }
 

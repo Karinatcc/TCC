@@ -10,6 +10,7 @@
   <div class="form-container">
     <h2>Login</h2>
 
+    <!-- Formulário envia para validação segura no PHP -->
     <form method="POST" action="processa_login.php">
       <label for="email">E-mail comercial</label>
       <input
@@ -22,7 +23,8 @@
 
       <div class="label-row">
         <label for="senha">Senha</label>
-        <a href="#" class="esqueceu">Esqueceu sua senha?</a>
+        <!-- LINK CORRIGIDO PARA RECUPERAR SENHA -->
+        <a href="html/recuperar-senha.html" class="esqueceu">Esqueceu sua senha?</a>
       </div>
 
       <div class="input-senha">
@@ -30,10 +32,11 @@
           type="password"
           id="senha"
           name="senha"
-          placeholder="12 caracteres ou mais"
+          placeholder="5 caracteres ou mais"
           required
+          minlength="5"
         >
-        <!-- Ícone SVG do olho -->
+        <!-- Ícone para mostrar/esconder senha -->
         <svg class="toggle-olho" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 0 24 24" width="20">
           <path fill="#555" d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zm0 12.5c-2.48 0-4.5-2.02-4.5-4.5S9.52 8 12 8s4.5 2.02 4.5 4.5S14.48 17 12 17zm0-7c-1.38 0-2.5 1.12-2.5 2.5S10.62 15 12 15s2.5-1.12 2.5-2.5S13.38 10 12 10z"/>
         </svg>
@@ -42,62 +45,49 @@
       <button type="submit">Conecte-se</button>
     </form>
 
-    <div class="divider">
-      <span>ou</span>
-    </div>
-
-    <div class="social-login">
-      <button class="google">
-        <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google" />
-        Entrar com o Google
-      </button>
-    </div>
   </div>
 
   <script src="js/teste.js"></script>
   
   <script>
+  // Sistema de login seguro - Validação no servidor (PHP)
   document.addEventListener('DOMContentLoaded', function() {
+      // 1. Encontra elementos da página
       const form = document.querySelector('form');
       const mensagemArea = document.createElement('div');
       
-      // Cria área para mensagens após o título
+      // 2. Cria área para mensagens após o título
       const titulo = document.querySelector('h2');
       titulo.parentNode.insertBefore(mensagemArea, titulo.nextSibling);
       
-      form.addEventListener('submit', function(e) {
-          e.preventDefault();
-          
-          const email = document.getElementById('email').value;
-          const senha = document.getElementById('senha').value;
-          
-          // Remove mensagens anteriores
-          mensagemArea.innerHTML = '';
-          
-          // Validação - aceita ambos os emails
-          if ((email === 'admin@exemplo.com' || email === 'marciamolyna@gmail.com') && senha === '123456') {
-              // Login bem-sucedido - VERDE
-              const mensagemDiv = document.createElement('div');
-              mensagemDiv.className = 'mensagem sucesso';
-              mensagemDiv.textContent = '✅ Login realizado com sucesso! Redirecionando...';
-              mensagemArea.appendChild(mensagemDiv);
-              
-              // Redireciona após 3 segundos
-              setTimeout(() => {
-                  window.location.href = 'index.html';
-              }, 3000);
-              
-          } else {
-              // Login falhou - VERMELHO
-              const mensagemDiv = document.createElement('div');
-              mensagemDiv.className = 'mensagem erro';
-              mensagemDiv.textContent = '❌ E-mail ou senha incorretos!';
-              mensagemArea.appendChild(mensagemDiv);
-          }
-          
-          // Rola a página para mostrar a mensagem
+      // 3. Verifica mensagens na URL (vindas do PHP)
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.has('mensagem')) {
+          const mensagemDiv = document.createElement('div');
+          mensagemDiv.className = 'mensagem ' + (urlParams.get('tipo') || 'info');
+          mensagemDiv.textContent = urlParams.get('mensagem');
+          mensagemArea.appendChild(mensagemDiv);
           mensagemArea.scrollIntoView({ behavior: 'smooth' });
-      });
+      }
+      
+      // 4. Configura botão mostrar/esconder senha
+      const toggleOlho = document.querySelector('.toggle-olho');
+      const senhaInput = document.getElementById('senha');
+      
+      if (toggleOlho && senhaInput) {
+          let mostrando = false;
+          toggleOlho.addEventListener('click', () => {
+              mostrando = !mostrando;
+              senhaInput.type = mostrando ? 'text' : 'password';
+              
+              // Altera ícone do olho
+              toggleOlho.style.opacity = mostrando ? '0.7' : '1';
+          });
+      }
+      
+      // IMPORTANTE: Validação acontece no PHP
+      // - Login correto: vai para chatt.php
+      // - Login errado: volta com mensagem de erro
   });
   </script>
 </body>

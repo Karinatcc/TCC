@@ -1,0 +1,206 @@
+/* SISTEMA DE CONFIGURAÇÕES - CSS COMPLETO */
+
+.config-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    margin-left: auto;
+    border-radius: 6px;
+    transition: background-color 0.2s;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.config-btn:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.config-btn img {
+    width: 20px;
+    height: 20px;
+    display: block;
+}
+
+.config-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: white;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 8px 0;
+    min-width: 180px;
+    z-index: 1000;
+    display: none;
+    overflow: visible;
+    max-height: none;
+}
+
+.config-menu h4 {
+    margin: 0 12px 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    color: #6b7280;
+    text-transform: uppercase;
+}
+
+.config-divider {
+    height: 1px;
+    background: #f3f4f6;
+    margin: 4px 0;
+}
+
+.delete-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: none;
+    background: none;
+    width: 100%;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #dc2626;
+    transition: background-color 0.2s;
+}
+
+.delete-option:hover {
+    background-color: #fef2f2;
+}
+
+.delete-option svg {
+    width: 16px;
+    height: 16px;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 12px;
+    padding: 24px;
+    max-width: 400px;
+    width: 100%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.modal-icon {
+    width: 48px;
+    height: 48px;
+    background: #fef2f2;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+}
+
+.modal-icon svg {
+    width: 24px;
+    height: 24px;
+    fill: #dc2626;
+}
+
+.modal-content h3 {
+    margin: 0 0 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: #111827;
+}
+
+.modal-content p {
+    margin: 0 0 24px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #6b7280;
+    line-height: 1.5;
+}
+
+.modal-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: flex-end;
+}
+
+.btn-cancel {
+    padding: 10px 20px;
+    border: 1px solid #d1d5db;
+    background: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #374151;
+    transition: background-color 0.2s;
+}
+
+.btn-cancel:hover {
+    background: #f9fafb;
+}
+
+.btn-confirm-delete {
+    padding: 10px 20px;
+    border: none;
+    background: #dc2626;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.btn-confirm-delete:hover {
+    background: #b91c1c;
+}
+
+.chat-header {
+    position: relative;
+}
+
+/* BOTÃO MEU LINK DE ATENDIMENTO */
+.link-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 12px;
+    border: none;
+    background: none;
+    width: 100%;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #0057ff;
+    transition: background-color 0.2s;
+}
+
+.link-option:hover {
+    background-color: #f0f7ff;
+}
+
+.link-option svg {
+    width: 16px;
+    height: 16px;
+}

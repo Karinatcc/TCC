@@ -1,8 +1,7 @@
-
 /* Centraliza na tela */
 body {
   font-family: "Segoe UI", Arial, sans-serif;
-  background-color: #f5f6f8; /* escolha a cor desejada */
+  background-color: #f5f6f8;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -98,59 +97,15 @@ button[type="submit"] {
   border: none;
   border-radius: 8px;
   padding: 13px;
-  margin-top: 10px;
+  margin-top: 20px;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
+  transition: background-color 0.2s;
 }
 
 button[type="submit"]:hover {
   background-color: #0a6adf;
-}
-
-/* Linha divisória */
-.divider {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  margin: 25px 0;
-  color: #888;
-  font-size: 14px;
-}
-
-.divider::before,
-.divider::after {
-  content: "";
-  flex: 1;
-  border-bottom: 1px solid #ddd;
-  margin: 0 10px;
-}
-
-/* Botões sociais */
-.social-login button {
-  width: 100%;
-  border: 1px solid #ccc;
-  background-color: white;
-  color: #000;
-  border-radius: 8px;
-  padding: 10px;
-  margin-bottom: 10px;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.social-login button:hover {
-  background-color: #f1f1f1;
-}
-
-.social-login img {
-  width: 20px;
-  height: 20px;
 }
 
 /* ---------- MENSAGENS DE FEEDBACK (IGUAL AO CADASTRO) ---------- */

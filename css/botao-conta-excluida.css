@@ -1,0 +1,41 @@
+/* BOTÕES ESPECÍFICOS PARA PÁGINA CONTA EXCLUÍDA */
+.botoes-container {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    margin-top: 25px;
+    flex-wrap: wrap;
+}
+
+.botao {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: #0057ff;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 2px solid #0057ff;
+    min-width: 140px;
+}
+
+.botao:hover {
+    background-color: #0a6adf;
+    border-color: #0a6adf;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 87, 255, 0.3);
+}
+
+.botao-secundario {
+    background-color: transparent;
+    color: #0057ff;
+    border: 2px solid #0057ff;
+}
+
+.botao-secundario:hover {
+    background-color: #0057ff;
+    color: white;
+}

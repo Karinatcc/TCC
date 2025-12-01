@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conta Excluída - ChatNexus</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="sucesso.css">
+    <link rel="stylesheet" href="../css/botao-conta-excluida.css"> <!-- CSS dos botões -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        .exclusao-sucesso { text-align: center; padding: 60px 20px; }
+        
+        /* Ícone de confirmação */
+        .icone-exclusao {
+            width: 80px; height: 80px; background: #fef2f2; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; margin: 0 auto 30px;
+        }
+        .icone-exclusao svg { width: 40px; height: 40px; fill: #dc2626; }
+        
+        /* Classes antigas removidas */
+        /* .btn-voltar { background: #374151; margin-top: 20px; } */
+        /* .btn-voltar:hover { background: #4b5563; } */
+        
+        .texto-secundario { color: #6b7280; font-size: 14px; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <div class="cadastro-sucesso">
+        <div class="container exclusao-sucesso">
+            <!-- Ícone -->
+            <div class="icone-exclusao">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                </svg>
+            </div>
+            
+            <h2>Conta Excluída com Sucesso</h2>
+            <p>Sua conta e todos os dados associados foram permanentemente removidos do nosso sistema.</p>
+            <p class="texto-secundario">Agradecemos por ter utilizado o ChatNexus.</p>
+            
+            <!-- Botões de ação -->
+            <div class="botoes-container">
+                <a href="../cadastro.php" class="botao">Criar Nova Conta</a>
+                <a href="../index.html" class="botao botao-secundario">Página Inicial</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

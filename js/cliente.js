@@ -9,12 +9,29 @@ clientInput.addEventListener("keypress", e => {
     if (e.key === "Enter") sendClientMessage();
 });
 
-function sendClientMessage() {
+async function sendClientMessage() {
     const text = clientInput.value.trim();
     if (text === "") return;
 
     addMessage(text, "sent");
     clientInput.value = "";
+
+    try {
+        const response = await fetch('salvar-mensagem.php', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+            body: 'mensagem=' + encodeURIComponent(text)
+        });
+
+        const data = await response.json();
+        
+        if (!data.success) {
+            console.error('Erro ao salvar:', data.error);
+        }
+        
+    } catch (error) {
+        console.error('Erro de rede:', error);
+    }
 
     simulateTyping();
 }
