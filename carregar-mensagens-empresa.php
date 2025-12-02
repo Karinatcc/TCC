@@ -6,9 +6,12 @@ require 'database/conexao.php';
 if (isset($_SESSION['empresa_id'])) {
     // Modo cliente (acesso via link) ou dono logado como empresa
     $empresa_id = $_SESSION['empresa_id'];
+    // IMPORTANTE: Verificar se é modo cliente
+    $is_modo_cliente = isset($_SESSION['modo_cliente']) && $_SESSION['modo_cliente'] === true;
 } elseif (isset($_SESSION['usuario_id'])) {
     // Modo dono logado
     $empresa_id = $_SESSION['usuario_id'];
+    $is_modo_cliente = false;
 } else {
     die(json_encode(['success' => false, 'error' => 'Não autorizado']));
 }
@@ -18,7 +21,7 @@ try {
     $stmt = $pdo->prepare("
         SELECT m.*, 
                 CASE 
-                    WHEN m.enviado_por IS NULL THEN 'Cliente'  <!-- CORRETO! -->
+                    WHEN m.enviado_por IS NULL THEN 'Cliente'
                     ELSE u.nome 
                 END as nome_exibicao
         FROM mensagens m 
@@ -33,6 +36,7 @@ try {
         'success' => true, 
         'mensagens' => $mensagens, 
         'empresa_id' => $empresa_id,
+        'is_modo_cliente' => $is_modo_cliente, // ← ADICIONADO ESTA LINHA
         'usuario_id' => isset($_SESSION['usuario_id']) ? $_SESSION['usuario_id'] : 0
     ]);
 } catch (Exception $e) {

@@ -190,32 +190,55 @@ if ($_SESSION['modo_cliente']) {
         }
         
         function carregarMensagens() {
-            fetch('carregar-mensagens-empresa.php')
-                .then(r => r.json())
-                .then(data => {
-                    if (data.success) {
-                        const container = document.getElementById('mensagens');
-                        container.innerHTML = '';
-                        
-                        data.mensagens.forEach(msg => {
-                            const div = document.createElement('div');
-                            // Se enviado_por é NULL é cliente (sent), senão é dono (received)
-                            const isSent = msg.enviado_por === null;
-                            
-                            div.className = 'msg ' + (isSent ? 'sent' : 'received');
-                            div.innerHTML = `
-                                ${msg.conteudo}
-                                <div class="msg-info">
-                                    ${msg.nome_exibicao} • ${formatarData(msg.criado_em)}
-                                </div>
-                            `;
-                            container.appendChild(div);
-                        });
-                        
-                        container.scrollTop = container.scrollHeight;
+    fetch('carregar-mensagens-empresa.php')
+        .then(r => r.json())
+        .then(data => {
+            if (data.success) {
+                const container = document.getElementById('mensagens');
+                if (!container) return;
+                
+                container.innerHTML = '';
+                
+                data.mensagens.forEach(msg => {
+                    const div = document.createElement('div');
+                    
+                    // LÓGICA CORRIGIDA E SIMPLES:
+                    let isSent = false;
+                    
+                    // PRIMEIRO: Determine se estamos no modo cliente
+                    // Se data.is_modo_cliente for true, estamos acessando via link
+                    // Se for false ou undefined, estamos logados como dono
+                    const isModoCliente = data.is_modo_cliente === true;
+                    
+                    if (isModoCliente) {
+                        // MODO CLIENTE (acesso via link):
+                        // - Minhas mensagens (do cliente) têm enviado_por = NULL → sent (direita)
+                        // - Mensagens do dono têm enviado_por = ID do dono → received (esquerda)
+                        isSent = msg.enviado_por === null;
+                    } else {
+                        // MODO DONO (logado normalmente):
+                        // - Minhas mensagens (do dono) têm enviado_por = meu ID → sent (direita)
+                        // - Mensagens do cliente têm enviado_por = NULL → received (esquerda)
+                        isSent = msg.enviado_por == data.usuario_id;
                     }
+                    
+                    div.className = 'msg ' + (isSent ? 'sent' : 'received');
+                    div.innerHTML = `
+                        ${msg.conteudo}
+                        <div class="msg-info">
+                            ${msg.nome_exibicao} • ${formatarData(msg.criado_em)}
+                        </div>
+                    `;
+                    container.appendChild(div);
                 });
-        }
+                
+                container.scrollTop = container.scrollHeight;
+            }
+        })
+        .catch(error => {
+            console.error('Erro ao carregar mensagens:', error);
+        });
+}
         
         function formatarData(dataString) {
             const data = new Date(dataString);

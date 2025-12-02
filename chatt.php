@@ -15,6 +15,7 @@ if (!isset($_SESSION['usuario_id'])) {
     <title>ChatNexus</title>
     <link rel="stylesheet" href="css/chatt.css">
     <link rel="stylesheet" href="css/configuracoes.css">
+    <link rel="stylesheet" href="css/sidebar-simples.css">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -26,7 +27,7 @@ if (!isset($_SESSION['usuario_id'])) {
 <div class="app">
 
     <!-- SIDEBAR -->
-    <aside class="sidebar">
+    <aside class="sidebar" id="sidebarContainer">
         <header class="sidebar-header">
             <h3>Clientes</h3>
 
@@ -82,7 +83,7 @@ if (!isset($_SESSION['usuario_id'])) {
 
         <div class="messages" id="messages">
             <div class="msg received">Olá! Tudo bem?</div>
-            <div class="msg sent">Tudo sim!</div>
+            <div class="msg sent">Olá! Tudo sim, e com você?<br>Como posso ajudar?</div>
         </div>
 
         <footer class="chat-input">
@@ -111,7 +112,8 @@ if (!isset($_SESSION['usuario_id'])) {
     </div>
 </div>
 
-<script src="chat.js"></script>
+<script src="js/sidebar-simples.js"></script>
+<script src="js/chat.js"></script>
 <script src="js/configuracoes.js"></script>
 </body>
 </html>
