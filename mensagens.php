@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($conteudo !== '') {
 
         // enviado_por = 0 → cliente
-        $enviado_por = $cliente_id;
+        $enviado_por = null;
 
         $query = "INSERT INTO mensagens (conteudo, enviado_por, empresa_id, cliente_id)
                   VALUES (?, ?, ?, ?)";
@@ -137,6 +137,59 @@ $mensagens = $stmt->fetchAll();
             <button type="submit">Enviar</button>
         </form>
     </div>
+
+    <script>
+        const inputMensagem = document.querySelector('input[name="conteudo"]');
+        const chatBox = document.getElementById('chat-box');
+
+        let digitando = false;
+
+        // Detecta quando começa a digitar
+        inputMensagem.addEventListener('focus', () => {
+            digitando = true;
+        });
+
+        // Detecta quando para de digitar
+        inputMensagem.addEventListener('blur', () => {
+            digitando = false;
+        });
+
+        // Função que busca novas mensagens sem recarregar a página
+        function carregarMensagens() {
+            if (digitando) return;
+
+            fetch(`buscar-mensagens.php?cliente_id=<?= $cliente_id ?>&empresa_id=<?= $empresa_id ?>`)
+                .then(r => r.json())
+                .then(mensagens => {
+
+                    // Remove TODAS as mensagens atuais
+                    document.querySelectorAll('.msg').forEach(m => m.remove());
+
+                    // Renderiza novamente
+                    mensagens.forEach(m => {
+                        const div = document.createElement('div');
+
+                        const classe = (m.enviado_por == <?= $cliente_id ?>) ?
+                            'cliente' :
+                            'empresa';
+
+                        div.className = `msg ${classe}`;
+                        div.innerHTML = `
+                    ${m.conteudo}
+                    <br>
+                    <small>${m.criado_em}</small>
+                `;
+
+                        chatBox.insertBefore(div, document.querySelector('form'));
+                    });
+
+                    chatBox.scrollTop = chatBox.scrollHeight;
+                });
+        }
+
+        // Atualiza a cada 3 segundos SEM ATRAPALHAR A DIGITAÇÃO
+        setInterval(carregarMensagens, 3000);
+    </script>
 
 </body>
 

@@ -29,32 +29,6 @@ if ($empresa_link) {
     $_SESSION['empresa_id'] = $_SESSION['usuario_id'];
 }
 
-// ============================================
-// REGISTRAR CLIENTE QUANDO ACESSAR VIA LINK
-// ============================================
-if ($_SESSION['modo_cliente']) {
-    try {
-        // Gerar ID único para o cliente
-        $cliente_id = 'cli_' . md5($_SERVER['REMOTE_ADDR'] . time() . rand(1000, 9999));
-        
-        // Registrar cliente online
-        $stmt = $pdo->prepare("
-            INSERT OR REPLACE INTO clientes_online 
-            (empresa_id, cliente_id, status, ultima_atividade) 
-            VALUES (?, ?, 'aguardando', CURRENT_TIMESTAMP)
-        ");
-        
-        $stmt->execute([$_SESSION['empresa_id'], $cliente_id]);
-        
-        $_SESSION['cliente_id'] = $cliente_id;
-        
-    } catch (Exception $e) {
-        // Silenciar erro para não afetar o chat
-        error_log("Erro ao registrar cliente: " . $e->getMessage());
-    }
-}
-// ============================================
-
 // AÇÕES VIA AJAX
 if (isset($_GET['action'])) {
     header('Content-Type: application/json');
